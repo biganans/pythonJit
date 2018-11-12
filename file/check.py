@@ -7,7 +7,7 @@ import tkinter.messagebox
 from tkinter.filedialog import askdirectory
 
 #过滤当前目录
-fitlerDir = ["framework","game","hall","sdk","upgrade","jltest",".git","IgnoreDir","res"]
+fitlerDir = ["framework","game","hall","sdk","upgrade","test",".git","IgnoreDir","res"]
 
 module = ""
 path = ""
@@ -18,7 +18,7 @@ if __name__ == "__main__":
     selectDir = []
 
     #读取配置文件_path.ini
-    wordsIniPath = "./_path.ini"
+    wordsIniPath = "./_jjcheckpath.ini"
     if os.path.exists(wordsIniPath):
         words = open(wordsIniPath,'r',encoding='utf-8')
         # print("words",words)
@@ -29,7 +29,7 @@ if __name__ == "__main__":
         finally:
             words.close()
     else:
-        print("当前没有words.ini配置文件，生成文件.")
+        # print("当前没有_jjcheckpath.ini配置文件，生成文件.")
         f = open(wordsIniPath,'a',encoding='utf-8')
         f.close()
 
@@ -76,7 +76,13 @@ if __name__ == "__main__":
         # print("哎哟，按钮按下了",_p)
         #是否是module目录
         path = _p
-        checkList()
+        if path != "" and len(path) >0 and path[0] != "":
+            checkList()
+        else:
+            varPath.set("当前没有设置文件夹目录")
+            module = ""
+            var.set("检测目录["+module+"]")
+
 
     var = tkinter.StringVar()
     var.set("检测moudle[无]")
@@ -148,5 +154,8 @@ if __name__ == "__main__":
         run = "lua -e \"package.path=[[./src/?.lua;]]..package.path\" ./src/Check.lua -output ./error.txt "+ cdir
         # print(run)
         os.system(run)
+        print("请查看当前目录的error.txt文件")
     else:
         print("没有选择目录，或者目录为空.")
+
+    os.system("pause")
