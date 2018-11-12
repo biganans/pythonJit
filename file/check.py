@@ -14,7 +14,7 @@ path = ""
 
 if __name__ == "__main__":
 
-    welcome = "欢迎使用JJCheck\n请确保lua.exe的环境正确配置\n再选择module文件夹进行格式检测\n最后的错误列表会存在当前目录的error.txt文件中\n需要反复运行此脚本直到出现\nTotal: 0 errors / 0 warnings in xx file"
+    welcome = "欢迎使用Check\n请确保lua.exe的环境正确配置\n再选择module文件夹进行格式检测\n最后的错误列表会存在当前目录的error.txt文件中\n需要反复运行此脚本直到出现\nTotal: 0 errors / 0 warnings in xx file"
     selectDir = []
 
     #读取配置文件_path.ini
