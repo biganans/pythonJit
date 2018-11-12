@@ -145,7 +145,7 @@ if __name__ == "__main__":
         print("start check dir::[[",module,"]]")
         cdir = os.path.join(path,module)
         os.system("cd ./")
-        run = "lua -e \"package.path=[[./src/?.lua;]]..package.path\" ./src/JJCheck.lua -output ./error.txt "+ cdir
+        run = "lua -e \"package.path=[[./src/?.lua;]]..package.path\" ./src/Check.lua -output ./error.txt "+ cdir
         # print(run)
         os.system(run)
     else:
