@@ -1,0 +1,1 @@
+pyinstaller --console --onefile xx.py -i icon.ico
